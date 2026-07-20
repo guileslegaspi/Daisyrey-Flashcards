@@ -1,0 +1,220 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    margin: 0;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+h1 {
+    color: #005a63;
+    margin-bottom: 30px;
+}
+
+.dashboard {
+    display: flex;
+    gap: 40px;
+    max-width: 950px;
+    width: 100%;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+/* Form Styling */
+.form-container {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    width: 340px;
+    box-sizing: border-box;
+}
+
+.form-container h2 {
+    margin-top: 0;
+    color: #333;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+.form-group textarea {
+    resize: vertical;
+    height: 70px;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.2s;
+}
+
+.submit-btn:hover {
+    background-color: #218838;
+}
+
+/* Flashcard Viewer Styling */
+.viewer-container {
+    text-align: center;
+    width: 450px;
+    max-width: 100%;
+}
+
+.category-tag {
+    background-color: #007a87;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.card-container {
+    margin: 20px auto;
+    height: 320px; /* Increased height to make space for the explanation */
+    width: 100%;
+    cursor: pointer;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.4s ease-out;
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    box-sizing: border-box;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+    background: white;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    transition: opacity 0.3s ease, visibility 0.3s;
+}
+
+.card-back {
+    background-color: #e8f4f5;
+    color: #222;
+    align-items: flex-start; /* Aligns text neatly at the top */
+    text-align: left;
+    overflow-y: auto; /* Adds a scrollbar if she writes a massive explanation */
+}
+
+.back-content {
+    width: 100%;
+}
+
+.answer-title, .explanation-title {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #005a63;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.explanation-title {
+    color: #666;
+}
+
+.explanation-paragraph {
+    font-size: 1rem;
+    color: #444;
+    margin-top: 5px;
+}
+
+.card-divider {
+    border: 0;
+    height: 1px;
+    background: #cbdcdb;
+    margin: 15px 0;
+}
+
+/* Failsafe Visibility Engine */
+.card-inner:not(.is-flipped) .card-back {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.card-inner:not(.is-flipped) .card-front {
+    opacity: 1;
+    visibility: visible;
+}
+
+.card-inner.is-flipped .card-front {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.card-inner.is-flipped .card-back {
+    opacity: 1;
+    visibility: visible;
+}
+
+.controls button {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 6px;
+    background-color: #007a87;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.95rem;
+}
+
+.controls button:hover {
+    background-color: #005a63;
+}
+
+.counter-text {
+    margin-top: 10px;
+    font-size: 0.85rem;
+    color: #777;
+}
